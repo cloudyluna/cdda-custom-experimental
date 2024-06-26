@@ -1,5 +1,5 @@
 {
-  description = "cdda-git";
+  description = "cdda-experimental-git";
 
   inputs = {
     nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
@@ -32,7 +32,6 @@
               ];
               
               buildInputs = with pkgs; [
-                ncurses
                 gettext
                 SDL2
                 SDL2_image
@@ -57,7 +56,7 @@
 
                 cat << EOF > launcher
                 #!${pkgs.runtimeShell}
-                $out/bin/cataclysm-tiles --basepath $out
+                $out/bin/cataclysm-tiles --basepath $out --userdir \$HOME/.cdda-experimental-git
                 EOF
                 install -m755 -D launcher $out/bin/${name}
 
