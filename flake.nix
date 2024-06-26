@@ -55,12 +55,11 @@
                 
                 install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
 
-                launcher=$app/Contents/MacOS/Cataclysm.sh
                 cat << EOF > launcher
                 #!${pkgs.runtimeShell}
                 $out/bin/cataclysm-tiles --basepath $out
                 EOF
-                install -m755 -D launcher.sh $out/bin/${name}
+                install -m755 -D launcher $out/bin/${name}
 
                 runHook postInstall
               '';
