@@ -5,7 +5,9 @@ CDDA github repo. Beware that I'm using this flake for learning nix flakes and n
 
 # running for a quick try
 
-`nix run` or `nix run .#default` from within the repo directory.
+- Remotely: `nix run github:cloudyluna/cdda-experimental-git-flake`. (recommended)
+
+- Locally: `nix run` or `nix run .#default` from within the repo directory.
 
 # install
 
