@@ -3,6 +3,14 @@
 This is my personal nix flake to run the autommatically built CDDA game from
 CDDA github repo. Beware that I'm using this flake for learning nix flakes and nixos.
 
+# running for a quick try
+
+`nix run` or `nix run .#default` from within the repo directory.
+
+# install
+
+Use `nix profile install .` from within the directory.
+
 # game version
 
 - 2024-06-26-0530
