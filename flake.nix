@@ -18,13 +18,12 @@
           packages = {
             cdda-experimental-git = pkgs.stdenvNoCC.mkDerivation rec {
               name = "cdda-tiles-launcher";
-              src = let
-                releaseVersion = "2024-06-26-1623";
-              in
+              version = "2024-06-26-1623";
+              src =
                 pkgs.fetchurl {
                   # if you want local tarball, use file://... url.
-                  url = "https://github.com/CleverRaven/Cataclysm-DDA/releases/download/cdda-experimental-${releaseVersion}/cdda-linux-tiles-sounds-x64-${releaseVersion}.tar.gz";
-                  hash = "sha256-Hf4LiPU7jjqWlP8Ic0Du9KUdKRqC7o51/65qSpL1wfI=";
+                  url = "https://github.com/CleverRaven/Cataclysm-DDA/releases/download/cdda-experimental-${version}/cdda-linux-tiles-sounds-x64-${version}.tar.gz";
+                  hash = "sha256-wQFRuJQcfBjRh1WY0/uUUAgIMMMsB/rq3H1UlDixhag=";
                 };
               
               nativeBuildInputs = with pkgs; [
