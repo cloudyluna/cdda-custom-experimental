@@ -40,6 +40,8 @@
               dontStrip = true;
 
               installPhase = ''
+                runHook preInstall
+
                 mkdir $out
                 cp -R data gfx doc $out
                 
@@ -50,6 +52,8 @@
                 $out/bin/cataclysm-tiles --basepath $out --userdir \$HOME/.cdda-experimental-git
                 EOF
                 install -m755 -D launcher $out/bin/${name}
+
+                runHook postInstall
               '';
             };
           };
