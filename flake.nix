@@ -16,13 +16,13 @@
       in
         rec {
           packages = {
-            cdda-experimental-git = pkgs.stdenv.mkDerivation rec {
+            cdda-experimental-git = pkgs.stdenvNoCC.mkDerivation rec {
               name = "cdda-tiles-launcher";
               src = let
-                releaseVersion = "2024-06-26-0530";
+                releaseVersion = "2024-06-26-1623";
               in
                 pkgs.fetchurl {
-                  # if want local tarball, use file://... url.
+                  # if you want local tarball, use file://... url.
                   url = "https://github.com/CleverRaven/Cataclysm-DDA/releases/download/cdda-experimental-${releaseVersion}/cdda-linux-tiles-sounds-x64-${releaseVersion}.tar.gz";
                   hash = "sha256-Hf4LiPU7jjqWlP8Ic0Du9KUdKRqC7o51/65qSpL1wfI=";
                 };
@@ -38,17 +38,10 @@
                 SDL2_mixer
                 SDL2_ttf
               ];
-
-              patchDesktopFile = ''
-              substituteInPlace $out/share/applications/org.cataclysmdda.CataclysmDDA.desktop \
-                --replace "Exec=cdda-tiles-launcher" "Exec=$out/bin/cdda-tiles-launcher"
-              '';
               
               dontStrip = true;
 
               installPhase = ''
-                runHook preInstall
-
                 mkdir $out
                 cp -R data gfx doc $out
                 
@@ -59,8 +52,6 @@
                 $out/bin/cataclysm-tiles --basepath $out --userdir \$HOME/.cdda-experimental-git
                 EOF
                 install -m755 -D launcher $out/bin/${name}
-
-                runHook postInstall
               '';
             };
           };
