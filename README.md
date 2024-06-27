@@ -5,17 +5,18 @@ CDDA github repo. Beware that I'm using this flake for learning nix flakes and n
 
 # running for a quick try
 
-- Remotely: `nix run github:cloudyluna/cdda-experimental-git-flake`. (recommended)
+- Remotely: `nix run github:cloudyluna/cdda-experimental-git-flake`.
 
 - Locally: `nix run` or `nix run .#default` from within the repo directory.
 
 # install
 
-Use `nix profile install .` from within the directory.
+- Remotely: `nix install github:cloudyluna/cdda-experimental-git-flake`
+- Locally:  `nix profile install .` from within the directory.
 
 # game version
 
-- 2024-06-26-0530
+- 2024-06-26-1623
 
 # exposed binaries
 
