@@ -8,6 +8,10 @@
   
   outputs = { self, nixpkgs, flake-utils, ... }:
     let supportedSystems = [ "x86_64-linux" ];
+        tankMod = builtins.fetchGit {
+          url = "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
+          rev = "70278e9576a875c801ff6848e059312ae97a411c";
+        };
     in flake-utils.lib.eachSystem supportedSystems (system:
       let
         pkgs = import nixpkgs {
@@ -21,7 +25,6 @@
               version = "2024-06-26-1623";
               src =
                 pkgs.fetchurl {
-                  # if you want local tarball, use file://... url.
                   url = "https://github.com/CleverRaven/Cataclysm-DDA/releases/download/cdda-experimental-${version}/cdda-linux-tiles-sounds-x64-${version}.tar.gz";
                   hash = "sha256-wQFRuJQcfBjRh1WY0/uUUAgIMMMsB/rq3H1UlDixhag=";
                 };
@@ -43,6 +46,7 @@
                 runHook preInstall
 
                 mkdir $out
+                cp -R ${tankMod}/Tankmod_Revived data/mods/
                 cp -R data gfx doc $out
                 
                 install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
