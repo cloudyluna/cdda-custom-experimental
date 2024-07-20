@@ -12,7 +12,6 @@
       let pkgs = import nixpkgs { inherit system; };
       in rec {
         packages = rec {
-          default = primary;
           # With extra mods and all the goodies I like.
           extras =
             pkgs.lib.overrideDerivation primary (oldAttrs:
@@ -44,7 +43,7 @@
                 '';
               });
 
-          primary = pkgs.stdenvNoCC.mkDerivation rec {
+          default = pkgs.stdenvNoCC.mkDerivation rec {
             name = "cdda-tiles-launcher";
             version = "2024-06-26-1623";
             src = pkgs.fetchurl {

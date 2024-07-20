@@ -21,11 +21,11 @@ I also bundle some mods that I like as another package.
 ## Current included mods for extra package are:
 - [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod) (commit hash: 70278e9576a875c801ff6848e059312ae97a411c)
 
-Just append `#cdda-experimental-git-extras` to the package name.
+To make this work, just append `#extras` to the package name.
 
 For example:
 
-To install remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake#cdda-experimental-git-extras`
+To install remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake#extras`
 
 # game version
 
