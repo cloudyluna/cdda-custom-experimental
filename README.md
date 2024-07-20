@@ -22,7 +22,7 @@ Just append `#cdda-experimental-git-extras` to the package name.
 
 For example:
 
-To install remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake#cdda-experimental-git-extras`.
+To install remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake#cdda-experimental-git-extras`
 
 # game version
 
