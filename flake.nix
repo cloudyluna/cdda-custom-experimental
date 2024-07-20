@@ -14,7 +14,7 @@
         packages = rec {
           # With extra mods and all the goodies I like.
           extras =
-            pkgs.lib.overrideDerivation primary (oldAttrs:
+            pkgs.lib.overrideDerivation default (oldAttrs:
               let
                 mods = {
                   tank = builtins.fetchGit {
