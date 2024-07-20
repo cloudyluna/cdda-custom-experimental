@@ -10,13 +10,13 @@
     let supportedSystems = [ "x86_64-linux" ];
     in flake-utils.lib.eachSystem supportedSystems (system:
       let pkgs = import nixpkgs { inherit system; };
-      in {
-        packages = rec {
-          default = cdda-experimental-git;
-
+      in rec {
+        packages.default = apps.primary;
+        apps = rec {
+          default = primary;
           # With extra mods and all the goodies I like.
-          cdda-experimental-git-extras =
-            pkgs.lib.overrideDerivation cdda-experimental-git (oldAttrs:
+          extras =
+            pkgs.lib.overrideDerivation primary (oldAttrs:
               let
                 mods = {
                   tank = builtins.fetchGit {
@@ -45,7 +45,7 @@
                 '';
               });
 
-          cdda-experimental-git = pkgs.stdenvNoCC.mkDerivation rec {
+          primary = pkgs.stdenvNoCC.mkDerivation rec {
             name = "cdda-tiles-launcher";
             version = "2024-06-26-1623";
             src = pkgs.fetchurl {

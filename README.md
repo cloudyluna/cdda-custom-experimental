@@ -11,7 +11,7 @@ CDDA github repo. Beware that I'm using this flake for learning nix flakes and n
 
 # install
 
-- Remotely: `nix install github:cloudyluna/cdda-experimental-git-flake`
+- Remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake`
 - Locally:  `nix profile install .` from within the directory.
 
 # Extra mods
