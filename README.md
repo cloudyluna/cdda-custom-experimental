@@ -18,6 +18,9 @@ CDDA github repo. Beware that I'm using this flake for learning nix flakes and n
 
 I also bundle some mods that I like as another package.
 
+## Current included mods for extra package are:
+- [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod) (commit hash: 70278e9576a875c801ff6848e059312ae97a411c)
+
 Just append `#cdda-experimental-git-extras` to the package name.
 
 For example:
