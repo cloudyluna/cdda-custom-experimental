@@ -11,8 +11,7 @@
     in flake-utils.lib.eachSystem supportedSystems (system:
       let pkgs = import nixpkgs { inherit system; };
       in rec {
-        packages.default = apps.primary;
-        apps = rec {
+        packages = rec {
           default = primary;
           # With extra mods and all the goodies I like.
           extras =
