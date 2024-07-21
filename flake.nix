@@ -48,7 +48,7 @@
 
                 minimods = builtins.fetchGit {
                   url = "https://github.com/John-Candlebury/CDDA-Minimods";
-                  rev = "2b8fbb3ffe1ecded1b0716d6d6601977752457d5";
+                  rev = "67a3f14a096f5780294ec32d3de48c4bb37b05e3";
                 };
               };
 
