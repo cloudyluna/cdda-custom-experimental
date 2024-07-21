@@ -18,8 +18,16 @@ CDDA github repo. Beware that I'm using this flake for learning nix flakes and n
 
 I also bundle some mods that I like as another package.
 
+> NOTE: Remember to enable them in your world creation menu by pressing 'm' button and select your mod of choice
+in the world creation screen.
+
 ## Current included mods for extra package are:
 - [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod) (commit hash: 70278e9576a875c801ff6848e059312ae97a411c)
+  - M1 Abrams, electric powered mini tank, etc. I love battle tanks in this game! Cozy and comfy.
+- [CDDA-Minimods](https://github.com/John-Candlebury/CDDA-Minimods/) (commit hash: 2b8fbb3ffe1ecded1b0716d6d6601977752457d5)
+  - Included submods:
+    - ***No_rust*** because I don't want want character skills to decay overtime of when rarely used. Remember
+    this mod can be found in the balance tab in the mod menu.
 
 To make this work, just append `#extras` to the package name.
 

@@ -9,62 +9,62 @@
   outputs = { self, nixpkgs, flake-utils, ... }:
     let supportedSystems = [ "x86_64-linux" ];
     in flake-utils.lib.eachSystem supportedSystems (system:
-      let pkgs = import nixpkgs { inherit system; };
-          copyMods = mods: pkgs.lib.foldl' (acc: mod: acc + "cp -R ${mod} data/mods/" + " \n") "" mods;
-          
-          writeLauncher = ''
-            cat << EOF > launcher
-            #!${pkgs.runtimeShell}
-            $out/bin/cataclysm-tiles --basepath $out --userdir \$HOME/.cdda-experimental-git
-            EOF
+      let
+        pkgs = import nixpkgs { inherit system; };
+        copyMods = mods:
+          pkgs.lib.foldl' (acc: mod: acc + "cp -R ${mod} data/mods/" + " \n") ""
+          mods;
 
-            install -m755 -D launcher $out/bin/cdda-tiles-launcher
-          '';
-          
-          makeInstallPhase = modsCopier:
-            ''runHook preInstall
+        writeLauncher = ''
+          cat << EOF > launcher
+          #!${pkgs.runtimeShell}
+          $out/bin/cataclysm-tiles --basepath $out --userdir \$HOME/.cdda-experimental-git
+          EOF
 
-              mkdir $out
+          install -m755 -D launcher $out/bin/cdda-tiles-launcher
+        '';
 
-              ${(modsCopier)}
+        makeInstallPhase = modsCopier: ''
+          runHook preInstall
 
-              cp -R data gfx doc $out
+                        mkdir $out
 
-              install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
+                        ${(modsCopier)}
 
-              ${writeLauncher}
+                        cp -R data gfx doc $out
 
-              runHook postInstall
-             '';
+                        install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
+
+                        ${writeLauncher}
+
+                        runHook postInstall
+        '';
       in rec {
         packages = rec {
           # With extra mods and all the goodies I like.
-          extras =
-            pkgs.lib.overrideDerivation default (oldAttrs:
-              let
-                mods = {
-                  tank = builtins.fetchGit {
-                    url =
-                      "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
-                    rev = "70278e9576a875c801ff6848e059312ae97a411c";
-                  };
-
-                  minimods = builtins.fetchGit {
-                    url =
-                      "https://github.com/John-Candlebury/CDDA-Minimods";
-                    rev = "2b8fbb3ffe1ecded1b0716d6d6601977752457d5";
-                  };
+          extras = pkgs.lib.overrideDerivation default (_:
+            let
+              mods = {
+                tank = builtins.fetchGit {
+                  url = "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
+                  rev = "70278e9576a875c801ff6848e059312ae97a411c";
                 };
-              in {
-                installPhase = (makeInstallPhase
-                  (copyMods
-                    [ "${mods.tank}/Tankmod_Revived"
-                      "${mods.minimods}/No_rust"
-                    ]
-                  )
-                );
-                   
-              });
+
+                minimods = builtins.fetchGit {
+                  url = "https://github.com/John-Candlebury/CDDA-Minimods";
+                  rev = "2b8fbb3ffe1ecded1b0716d6d6601977752457d5";
+                };
+              };
+
+              copyMods = pkgs.lib.foldl'
+                (acc: mod: acc + "cp -R ${mod} data/mods/" + " \n") "";
+            in {
+              installPhase = (makeInstallPhase (copyMods [
+                "${mods.tank}/Tankmod_Revived"
+                "${mods.minimods}/No_rust"
+              ]));
+
+            });
 
           default = pkgs.stdenvNoCC.mkDerivation rec {
             name = "cdda-tiles-launcher";
