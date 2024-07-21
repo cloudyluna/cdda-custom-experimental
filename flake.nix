@@ -23,17 +23,17 @@
         makeInstallPhase = modsCopier: ''
           runHook preInstall
 
-                        mkdir $out
+          mkdir $out
 
-                        ${(modsCopier)}
+          ${(modsCopier)}
 
-                        cp -R data gfx doc $out
+          cp -R data gfx doc $out
 
-                        install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
+          install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
 
-                        ${writeLauncher}
+          ${writeLauncher}
 
-                        runHook postInstall
+          runHook postInstall
         '';
       in rec {
         packages = rec {
@@ -53,7 +53,7 @@
               };
 
               copyMods = pkgs.lib.foldl'
-                (acc: mod: acc + "cp -R ${mod} data/mods/" + " \n") "";
+                (acc: mod: acc + "cp -R ${mod} data/mods/ \n") "";
             in {
               installPhase = (makeInstallPhase (copyMods [
                 "${mods.tank}/Tankmod_Revived"
