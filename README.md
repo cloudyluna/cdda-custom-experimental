@@ -43,6 +43,9 @@ To install remotely: `nix profile install github:cloudyluna/cdda-experimental-gi
 If you're hitting the issue where `nix profile install` or `nix run` not downloading the latest update from this repo, append
 your commands with `--refresh`.
 
+For example: `nix run --refresh github:cloudyluna/cdda-experimental-git-flake`
+
+
 # Game version
 
 - 2024-06-26-1623
