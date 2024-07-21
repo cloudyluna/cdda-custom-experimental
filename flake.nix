@@ -11,10 +11,6 @@
     in flake-utils.lib.eachSystem supportedSystems (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        copyMods = mods:
-          pkgs.lib.foldl' (acc: mod: acc + "cp -R ${mod} data/mods/" + " \n") ""
-          mods;
-
         writeLauncher = ''
           cat << EOF > launcher
           #!${pkgs.runtimeShell}
