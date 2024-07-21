@@ -52,8 +52,10 @@
                 };
               };
 
-              copyMods = pkgs.lib.foldl'
-                (acc: mod: acc + "cp -R ${mod} data/mods/ \n") "";
+              copyMods = pkgs.lib.foldl' (acc: mod:
+                acc + ''
+                  cp -R ${mod} data/mods/ 
+                '') "";
             in {
               installPhase = (makeInstallPhase (copyMods [
                 "${mods.tank}/Tankmod_Revived"
