@@ -17,8 +17,9 @@ you are running `nix` on other Linux distribution.
 - Remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake`
 - Locally:  `nix profile install .` from within the directory.
 
-# Extra mods
+# Extras
 
+## Mods
 I also bundle some mods that I like as a separate package.
 
 > NOTE: Remember to enable them in your world creation menu by pressing 'm' button and select your mod of choice
@@ -37,6 +38,16 @@ To make this work, just append `#extras` to the flake path name.
 For example:
 
 To install remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake#extras`
+
+
+## Development tools
+
+### json_formatter.cgi
+
+Install: `nix profile install github:cloudyluna/cdda-experimental-git-flake#jsonFormatter`
+
+
+- Exposed as: `cdda-json-formatter`
 
 # Troubleshooting
 

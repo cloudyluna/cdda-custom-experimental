@@ -64,6 +64,21 @@
 
             });
 
+          jsonFormatter = pkgs.lib.overrideDerivation default (origin: rec {
+            name = "cdda-json-formatter";
+            nativeBuildInputs = origin.nativeBuildInputs ++ [ pkgs.stdenv.cc.cc ];
+            buildInputs = [];
+            installPhase = ''
+              runHook preInstall
+
+              mkdir $out
+              
+              install -m755 -D json_formatter.cgi $out/bin/${name}
+
+              runHook postInstall
+            '';
+          });
+
           default = pkgs.stdenvNoCC.mkDerivation rec {
             name = "cdda-tiles-launcher";
             version = "2024-06-26-1623";
