@@ -1,20 +1,20 @@
-# cdda-experimental-git-flake
+# cdda-custom-experimental
 
-This is my personal nix flake to run the automatically built CDDA game from
-CDDA github repo. Beware that I'm using this flake for learning nix flakes and NixOS.
+This is my personal nix flake to run the automatically (experimental) built CDDA game from CDDA github repo. 
+Beware that I'm using this flake for learning nix flakes and NixOS.
 
 > NOTE: This is only tested on NixOS. You may need [nixGL](https://github.com/nix-community/nixGL) if
 you are running `nix` on other Linux distribution.
 
 # To give a quick try
 
-- Remotely: `nix run github:cloudyluna/cdda-experimental-git-flake`.
+- Remotely: `nix run github:cloudyluna/cdda-custom-experimental`.
 
 - Locally: `nix run` or `nix run .#default` from within the repo directory.
 
 # Install
 
-- Remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake`
+- Remotely: `nix profile install github:cloudyluna/cdda-custom-experimental`
 - Locally:  `nix profile install .` from within the directory.
 
 # Extras
@@ -37,14 +37,14 @@ To make this work, just append `#extras` to the flake path name.
 
 For example:
 
-To install remotely: `nix profile install github:cloudyluna/cdda-experimental-git-flake#extras`
+To install remotely: `nix profile install github:cloudyluna/cdda-custom-experimental#extras`
 
 
 ## Development tools
 
 ### json_formatter.cgi
 
-Install: `nix profile install github:cloudyluna/cdda-experimental-git-flake#jsonFormatter`
+Install: `nix profile install github:cloudyluna/cdda-custom-experimental#json-formatter`
 
 
 - Exposed as: `cdda-json-formatter`
@@ -54,12 +54,15 @@ Install: `nix profile install github:cloudyluna/cdda-experimental-git-flake#json
 If you're hitting the issue where `nix profile install` or `nix run` not downloading the latest update from this repo, append
 your commands with `--refresh`.
 
-For example: `nix run --refresh github:cloudyluna/cdda-experimental-git-flake`
+For example: `nix run --refresh github:cloudyluna/cdda-custom-experimental`
 
+# This flake config version
+
+0.1.0.0
 
 # Game version
 
-- 2024-06-26-1623
+- 2024-07-24-0510
 
 # Exposed binaries
 
@@ -68,7 +71,7 @@ For example: `nix run --refresh github:cloudyluna/cdda-experimental-git-flake`
 
 # User directory
 
-I don't want to to mess with my existing CDDA game user directories, so I set a custom one in `$HOME/.cdda-experimental-git`.
+I don't want to to mess with my existing CDDA game user directories, so I set a custom one in `$HOME/.cdda-custom-experimental`.
 
 # Supported archs
 
