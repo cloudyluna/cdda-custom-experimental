@@ -14,7 +14,7 @@
     in flake-utils.lib.eachSystem supportedSystems (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        writeLauncher = ''
+        writeLauncherScript = ''
           cat << EOF > launcher
 
           #!${pkgs.runtimeShell}
@@ -32,47 +32,115 @@
           install -m755 -D launcher $out/bin/cdda-tiles-launcher
         '';
 
-        makeInstallPhase = modsCopier: ''
+        makeInstallPhase = (extraContentsInstaller: ''
           runHook preInstall
 
           mkdir $out
 
-          ${(modsCopier)}
+          ${(extraContentsInstaller)}
 
           cp -R data gfx doc $out
 
           install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
 
-          ${writeLauncher}
+          ${writeLauncherScript}
 
           runHook postInstall
-        '';
+        '');
       in rec {
         packages = rec {
           # With extra mods and all the goodies I like.
           extras = pkgs.lib.overrideDerivation default (_:
             let
-              mods = {
-                tank = builtins.fetchGit {
-                  url = "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
-                  rev = "70278e9576a875c801ff6848e059312ae97a411c";
-                };
 
-                minimods = builtins.fetchGit {
-                  url = "https://github.com/John-Candlebury/CDDA-Minimods";
-                  rev = "67a3f14a096f5780294ec32d3de48c4bb37b05e3";
-                };
+              /* * Add, edit or remove mods/audiopacks here.
+                 # Every mods and audiopacks list attribute must have this
+                 # keys for consistency and documentation.
+                 # This is subject to change, however.
+
+                 {
+                   name = "Name of mod";
+
+                   # Leave as an empty list if you want to copy
+                   # the whole parent directory.
+                   subdirs = [
+                     "sub directory 1"
+                     "sub directory 2"
+                   ];
+
+                   # The mod package source.
+                   # You could use `pkgs.fetchGit` or `builtins.fetchurl` to
+                   download (and unpack) tarballs remotely.
+                   # See the real usage below.
+                   src = ...;
+                 }
+              */
+              cddaExtraContents = {
+                mods = [
+                  {
+                    name = "tankmod-revived";
+                    subdirs = [ "Tankmod_Revived" ];
+                    src = builtins.fetchGit {
+                      url =
+                        "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
+                      rev = "70278e9576a875c801ff6848e059312ae97a411c";
+                      shallow = true;
+                    };
+                  }
+
+                  {
+                    name = "minimods";
+                    subdirs = [ "No_rust" ];
+                    src = builtins.fetchGit {
+                      url = "https://github.com/John-Candlebury/CDDA-Minimods";
+                      rev = "67a3f14a096f5780294ec32d3de48c4bb37b05e3";
+                      shallow = true;
+                    };
+                  }
+
+                ];
+                soundPacks = [
+
+                  # I would like to include this in my extras package,
+                  # but its tarball is 500Mb in size. Nevermind then.
+                  /* {
+                       name = "Otopack";
+                       subdirs = [ "Otopack+ModsUpdates" ];
+                       src = pkgs.fetchzip {
+                         url = "https://github.com/Kenan2000/Otopack-Mods-Updates/"
+                           + "archive/refs/tags/"
+                           + "Otopack+ModsUpdates_09.03.2024.tar.gz";
+                         hash =
+                           "sha256-CzqDyPsFWKb6gJYserVd2X8nfJY2cugQNfC/0opLdvo=";
+                       };
+                     }
+                  */
+
+                ];
               };
 
-              copyMods = pkgs.lib.foldl' (acc: mod:
-                acc + ''
-                  cp -R ${mod} data/mods/ 
-                '') "";
+              installSubdirs = (content: target:
+                pkgs.lib.foldl' (acc: subdir:
+                  acc + ''
+                    cp -R ${content.src}/${subdir} data/${target}
+                  '') "" content.subdirs);
+
+              installContents = (contents: target:
+                pkgs.lib.foldl' (acc: content:
+                  if content.subdirs == [ ] then
+                    acc + ''
+                      cp -R ${content.src} data/${target}
+                    ''
+                  else
+                    acc + "${(installSubdirs content target)}") "" contents);
+
+              installExtraContents = ''
+                ${installContents cddaExtraContents.mods "mods"}
+                ${installContents cddaExtraContents.soundPacks "sound"}
+              '';
+
             in {
-              installPhase = (makeInstallPhase (copyMods [
-                "${mods.tank}/Tankmod_Revived"
-                "${mods.minimods}/No_rust"
-              ]));
+              installPhase = (makeInstallPhase installExtraContents);
 
             });
 
