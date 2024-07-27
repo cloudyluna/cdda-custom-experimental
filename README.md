@@ -51,15 +51,13 @@ Install: `nix profile install github:cloudyluna/cdda-custom-experimental#json-fo
 
 # Troubleshooting
 
-If you're hitting the issue where `nix profile install` or `nix run` not downloading the latest update from this repo, append
-your commands with `--refresh`.
+If you're hitting the issue where `nix profile install` or `nix run` not downloading the latest update from this repo, append your commands with `--refresh`.
 
 For example: `nix run --refresh github:cloudyluna/cdda-custom-experimental`
 
 # This flake config version
 
-
-0.2.0
+- 0.3.0
 
 # Game version
 
