@@ -58,11 +58,8 @@ For example: `nix run --refresh github:cloudyluna/cdda-custom-experimental`
 
 # This flake config version
 
-<<<<<<< HEAD
-0.1.0.0
-=======
+
 0.2.0
->>>>>>> refactor-contents-installer
 
 # Game version
 
@@ -75,16 +72,12 @@ For example: `nix run --refresh github:cloudyluna/cdda-custom-experimental`
 
 # User directory
 
-<<<<<<< HEAD
-I don't want to to mess with my existing CDDA game user directories, so I set a custom one in `$HOME/.cdda-custom-experimental`.
-=======
 `cdda-tiles-launcher` will use `$HOME/.cdda-custom-experimental` directory by
 ***default***.
 To override this to any directory you like, append the path of the
 location by the end of command call.
 
 Example: `cdda-tiles-launcher ~/cdda_cat_development`. 
->>>>>>> refactor-contents-installer
 
 # Supported archs
 
