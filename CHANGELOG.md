@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+<<<<<<< HEAD
+=======
+# [0.2.0.0] - 27-07-2024
+
+- Enabled a functionality to add audio packs.
+- Also refactored the mods installer function so user can add or remove 
+mods/audiopacks within a variable attribute set instead of going around all over
+the place in the flake.nix file.
+- Documented about overriding user directory path at runtime via 
+`cdda-tiles-launcher` in README.md
+
+- Maybe tilesets support later if I'd need it?
+
+>>>>>>> refactor-contents-installer
 
 # [0.1.0.0] - 24-07-2024
 
