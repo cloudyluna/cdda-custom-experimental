@@ -35,6 +35,7 @@ you are running `nix` on other Linux distribution.
     - [Included tools](#included-tools)
     - [devShells usage example](#devshells-usage-example)
 - [Default user directory](#default-user-directory)
+- [Developing this flake](#developing-this-flake)
 - [What this project is not](#what-this-project-is-not)
 - [See more](#see-more)
 
@@ -81,7 +82,7 @@ The base and the primary CDDA game version used throughout in other outputs (exc
 - Executable tarball direct download: https://github.com/CleverRaven/Cataclysm-DDA/releases/download/cdda-experimental-2024-07-24-0510/cdda-linux-tiles-sounds-x64-2024-07-24-0510.tar.gz
 
 #### Exposed executables:
-  - `cdda-tiles-launcher` - A shell script to launch cataclysm-tiles with the user directory located in custom location. See [Default user directory](#default-user-directory) for further information.
+  - `cdda-tiles-launcher` - Most user should use this. A shell script to launch cataclysm-tiles with the user directory located in custom location. See [Default user directory](#default-user-directory) for further information.
   - `catacylsm-tiles` - The invoked game binary. Call this manually (with `--help` for info) if you want more control.
 
 
@@ -178,6 +179,25 @@ location by the end of command call.
 
 Example: `cdda-tiles-launcher ~/cdda_cat_development`.
 
+
+## Developing this flake
+
+For convenience, I've included a simple `devShell` to be used with `nix develop`
+or `direnv` to get the tools you need to make updating this flake slightly easier.
+
+First, from within this repository, run `nix develop` or `direnv allow` 
+(if you have nix-direnv enabled) and let it load the environment for you.
+
+Then, you can use `make` to do most common things. You can change the target
+by appending `TARGET=PATH#OUTPUT_NAME`.
+
+- `make build` - Build the flake output.
+- `make` - alias to `make build`.
+- `make run` - Similar to `make build`, but it will run the output instead.
+- `make check` - Check if the flake files are syntactically correct.
+- `make format` - Format (in-place) all the .nix files in the repository.
+
+Example: `make run TARGET=.#extras`
 
 ## What this project is not
 

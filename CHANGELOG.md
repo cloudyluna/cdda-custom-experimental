@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Content source directory with spaces in its name now can be copied properly.
 - CHANGELOG.md now adheres to the keepachangelog format as much as possible.
+- README.md with more information.
 
 ### Changed
 - Factor out functionalities out of flake.nix into their own modules.
