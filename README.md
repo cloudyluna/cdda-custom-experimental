@@ -48,6 +48,8 @@ you are running `nix` on other Linux distribution.
 ### Locally
 - `nix profile install --refresh .`
 
+Once it is installed, run `cdda-tiles-launcher` and enjoy the game!
+
 ### Run remotely
 
 - `nix run --refresh github:cloudyluna/cdda-custom-experimental`
