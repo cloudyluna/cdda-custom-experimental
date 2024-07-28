@@ -7,3 +7,5 @@ gfx
 save
 sound
 templates
+.direnv
+.vscode
