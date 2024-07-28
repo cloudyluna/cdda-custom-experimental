@@ -1,25 +1,31 @@
-{ pkgs }: {
-  /* * Add, edit or remove mods/audiopacks here.
-               # Every mods and audiopacks list attribute must have this
-               # keys for consistency and documentation.
-               # This is subject to change, however.
+{ pkgs }:
 
-               {
-                 name = "Name of mod";
+let
+  lib = pkgs.lib;
+in
+{
+  /*
+     # Add, edit or remove mods/sound packs here.
+     # Every mods and sound packs list attribute must have this
+     # keys for consistency and documentation.
+     # This is subject to change, however.
 
-                 # Leave as an empty list if you want to copy
-                 # the whole parent directory.
-                 subdirs = [
-                   "sub directory 1"
-                   "sub directory 2"
-                 ];
+     {
+       name = "Name of mod";
 
-                 # The mod package source.
-                 # You could use  `fetchGit`` or `fetchurl` to
-                 download (and unpack) tarballs remotely.
-                 # See the real usage below.
-                 src = ...;
-               }
+       # Leave as an empty list if you want to copy
+       # the whole parent directory.
+       subdirs = [
+         "sub directory 1"
+         "sub directory 2"
+       ];
+
+       # The mod package source.
+       # You could use `builtins.fetchGit` or `lib.fetchurl` to
+       download (and unpack) tarballs remotely.
+       # See the real usage below.
+       src = ...;
+     }
   */
   mods = [
     {
@@ -43,21 +49,22 @@
     }
 
   ];
+
   soundPacks = [
 
-    # I would like to include this in my extras package,
-    # but its tarball is 500Mb in size. Nevermind then.
-    /* {
-         name = "Otopack";
-         subdirs = [ "Otopack+ModsUpdates" ];
-         src = pkgs.fetchzip {
-           url = "https://github.com/Kenan2000/Otopack-Mods-Updates/"
-             + "archive/refs/tags/"
-             + "Otopack+ModsUpdates_09.03.2024.tar.gz";
-           hash =
-             "sha256-CzqDyPsFWKb6gJYserVd2X8nfJY2cugQNfC/0opLdvo=";
-         };
-       }
+    # Example of adding Otopack's sound pack.
+    /*
+      {
+        name = "Otopack";
+        subdirs = [ "Otopack+ModsUpdates" ];
+        src = pkgs.fetchzip {
+          url = "https://github.com/Kenan2000/Otopack-Mods-Updates/"
+            + "archive/refs/tags/"
+            + "Otopack+ModsUpdates_09.03.2024.tar.gz";
+          hash =
+            "sha256-CzqDyPsFWKb6gJYserVd2X8nfJY2cugQNfC/0opLdvo=";
+        };
+      }
     */
 
   ];

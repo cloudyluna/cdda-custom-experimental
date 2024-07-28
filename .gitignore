@@ -9,3 +9,4 @@ sound
 templates
 .direnv
 .envrc
+.vscode
