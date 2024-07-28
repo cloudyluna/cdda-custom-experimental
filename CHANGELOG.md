@@ -17,10 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Factor out functionalities out of flake.nix into their own modules.
-- Rename some of the outputs for consistency.
-    - `#json-formatter` output to `#development`.
-    - `#extras.name` to `extras`.
-    - `#default.name` to `default`.
+- Rename `#json-formatter` to `#development`.
 - Leave the original `json_formatter.cgi` executable name as it is for 
 `#development`.
 

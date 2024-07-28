@@ -102,13 +102,12 @@
 
             in
             {
-              name = "extras";
               installPhase = (makeInstallPhase installExtraContents);
             }
           );
 
           development = lib.overrideDerivation default (origin: {
-            name = "development";
+            name = "json_formatter.cgi";
             nativeBuildInputs = origin.nativeBuildInputs ++ [ pkgs.stdenv.cc.cc ];
             buildInputs = [ ];
             installPhase = ''
@@ -127,7 +126,7 @@
               gameSettings = modules.cddaGameSettings;
             in
             pkgs.stdenvNoCC.mkDerivation {
-              name = "default";
+              name = "cdda-tiles-launcher";
               version = gameSettings.cdda.version;
               src = pkgs.fetchurl {
                 url = gameSettings.cdda.archiveUrl;
