@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- jackledead_armory weaponry mod and its core expansion.
+
+- `No portal storm` submod from Minimods. Though, their `modinfo.json` need to be
+patched to fix some minor typo and remove Steam's related key-value.
+    - Patch code can be found in 
+    [patches/minimods/minimods.patch](/patches/minimods/minimods.patch)
+
+- Add support for tilesets (gfx).
+
+- Add UndeadPeople tileset to `#extras` output.
+
+### Changed
+
+- Bumped Minimods commit to `2b8fbb3ffe1ecded1b0716d6d6601977752457d5`.
+
+
+### Fixed
+
+- Nested directories specified in `subdirs` key in `cdda-extras.nix` now will
+be flattened to be consistent with other mods. For example: `mods/deadjackal_armory`
+will live as `data/mods/deadjackal_armory` instead of `data/mods/mods/deadjackal_armory`.
+
 
 ## [0.3.0] - 29-07-2024
 
