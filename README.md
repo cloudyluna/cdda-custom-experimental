@@ -34,6 +34,7 @@ you are running `nix` on other Linux distribution.
     - [I want to play the very latest version!](#i-want-to-play-the-very-latest-version)
   - [extras](#extras)
     - [Included mods](#included-mods)
+    - [Included tilesets](#included-tilesets)
     - [I want more cool mods or sound packs!](#i-want-more-cool-mods-or-sound-packs)
   - [development](#development)
     - [Included tools](#included-tools)
@@ -119,6 +120,11 @@ This one is a combination of [default output](#default) + with some mods bundled
   - More cool weapons!
   - Included submods
     - ***Jackledead Armory Expansion***
+
+#### Included tilesets
+- [UndeadPeopleTileset](https://github.com/Theawesomeboophis/UndeadPeopleTileset/tree/559c0c124afe73c5639c171acee77312f3d68d68)
+  - Really good looking tileset/gfx and I personally favor it for most of my gameplays.
+  - Somewhat sizable in download size (20Mb ish) and still small enough. Worth it 🐈! 
   
 
 
