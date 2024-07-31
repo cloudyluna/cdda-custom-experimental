@@ -15,9 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for tilesets (gfx).
 
 - Add more content to `#extras`.
-    - jackledead_armory weaponry mod and its core expansion.
-        - The expansion may prompt an error during a world loading, but I see nothing
-        major that would call for a removal from from `#extras`, so far.
+    - jackledead_armory mod 
+        - I didn't include the world core addition submod due to
+          it causing an error prompt in the world loading screen.
+          I don't see anything major, but I don't want to risk it as a default
+          inclusion.
+          You can include this manually in your local nix file though.
+          See [modules/cdda-extras.nix](/modules/cdda-extras.nix).
     - UndeadPeople tileset.
 
 - `No portal storm` submod from Minimods. Though, their `modinfo.json` need to be

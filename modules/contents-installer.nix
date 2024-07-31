@@ -1,21 +1,14 @@
 { pkgs, lib }:
 let
-  getDeepestDirFrom = (
-    dir:
-    let
-      splittedDirPaths = builtins.split "\/" dir;
-      isANestedDir = builtins.length splittedDirPaths > 1;
-    in
-    if isANestedDir then pkgs.lib.last splittedDirPaths else ""
-  );
-
   makeSanitizedDirPath = (
-    subdir:
+    originalDir:
     let
-      deepestDir = getDeepestDirFrom subdir;
+      splittedDirPaths = builtins.split "\/" originalDir;
+      isANestedDir = builtins.length splittedDirPaths > 1;
+      deepestDir = pkgs.lib.last splittedDirPaths;
+      
     in
-    if deepestDir == "" then subdir else deepestDir
-
+    if isANestedDir then deepestDir else originalDir
   );
 
   installSubdirs = (
@@ -24,7 +17,7 @@ let
       acc: subdir:
 
       let
-        sanitizedDir = (makeSanitizedDirPath subdir);
+        sanitizedSubdir = (makeSanitizedDirPath subdir);
       in
 
       acc
@@ -35,10 +28,12 @@ let
         # permission, subdir content. The patch phase won't be able
         # to overwrite the content, sadly.
         # Not sure why, though.
-        install -d 0644 "${target}/${sanitizedDir}"
+        install -d 0644 "${target}/${sanitizedSubdir}"
 
-        echo "${content.name}: Installing into "${target}/${sanitizedDir}" ...."
-        cp -R "${content.src}/${subdir}/"* "${target}/${sanitizedDir}"
+        echo "${content.name}: Installing into "${target}/${sanitizedSubdir}" ...."
+
+        cp -R "${content.src}/${subdir}/"* "${target}/${sanitizedSubdir}"
+        
         echo "${content.name}: Done."
       ''
     ) "" content.subdirs

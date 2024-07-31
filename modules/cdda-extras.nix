@@ -50,7 +50,12 @@
       name = "jackledead_armory";
       subdirs = [
         "mods/jackledead_armory"
-        "mods/jackledead_armory_expansion"
+
+        # Note, the current pinned CDDA game + and this mod version
+        # will cause an error in the world loading screen.
+        # Hence, why this mod is not included by default.
+        # Remove '#' below to include the world core content expansion.
+        # "mods/jackledead_armory_expansion"
       ];
       src = fetchGit {
         url = "https://github.com/jackledead/jackledead_armory";

@@ -145,9 +145,9 @@ while playing the game.
     storms to appear at all 🫠.
 
 - [Jackledead Armory](https://github.com/jackledead/jackledead_armory/tree/ddb48de223839f7b61390d4e58fa506878624a30)
-  - More cool weapons!
-  - Included submods
-    - ***Jackledead Armory Expansion***
+  - More cool weapons!!!
+  - Only additional items mod are added which doesn't include the world
+  content expansion submod. See [modules/cdda-extras.nix](/modules/cdda-extras.nix) if you want to add.
 
 #### Included tilesets
 - [UndeadPeopleTileset](https://github.com/Theawesomeboophis/UndeadPeopleTileset/tree/559c0c124afe73c5639c171acee77312f3d68d68)
