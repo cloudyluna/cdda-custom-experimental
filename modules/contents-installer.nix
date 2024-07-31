@@ -1,20 +1,20 @@
 { pkgs, lib }:
 let
-  innnermostDir = (
+  getDeepestDirFrom = (
     dir:
     let
-      dstr = builtins.split "\/" dir;
-      isANestedDir = builtins.length dstr > 1;
+      splittedDirPaths = builtins.split "\/" dir;
+      isANestedDir = builtins.length splittedDirPaths > 1;
     in
-    if isANestedDir then pkgs.lib.last dstr else ""
+    if isANestedDir then pkgs.lib.last splittedDirPaths else ""
   );
 
-  f = (
+  makeSanitizedDirPath = (
     subdir:
     let
-      x = innnermostDir subdir;
+      deepestDir = getDeepestDirFrom subdir;
     in
-    if x == "" then subdir else x
+    if deepestDir == "" then subdir else deepestDir
 
   );
 
@@ -24,7 +24,7 @@ let
       acc: subdir:
 
       let
-        sanitizedDir = (f subdir);
+        sanitizedDir = (makeSanitizedDirPath subdir);
       in
 
       acc
