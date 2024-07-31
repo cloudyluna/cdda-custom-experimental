@@ -28,6 +28,16 @@
       in
       rec {
         packages = rec {
+
+          extras-expanded = extras.overrideAttrs (
+            let
+              extraContents = modules.cddaExtraExpandedContents;
+            in
+            {
+              prePatch = (modules.contentsInstaller.installExtraContents extraContents ".");
+            }
+          );
+
           # With extra mods and all the goodies I like.
           extras = default.overrideAttrs (
             let

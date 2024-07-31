@@ -20,9 +20,18 @@ patched to fix some minor typo and remove Steam's related key-value.
 
 - Add UndeadPeople tileset to `#extras` output.
 
+- Add `#extras-expanded` output to include a wider selection of mods, soundpacks and tilesets
+on top of `#extras`. Biggest downside with this output is that it's going to take a
+while to complete building and may need more PC resources to complete (connection bandwidth, larger disk,
+more RAM, etc).
+
 ### Changed
 
 - Bumped Minimods commit to `2b8fbb3ffe1ecded1b0716d6d6601977752457d5`.
+
+#### Technical
+
+- Move contents installer code from `flake.nix` into `contents-installer.nix`.
 
 
 ### Fixed
