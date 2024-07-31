@@ -37,7 +37,9 @@ let
         # Not sure why, though.
         install -d 0644 "${target}/${sanitizedDir}"
 
+        echo "${content.name}: Installing into "${target}/${sanitizedDir}" ...."
         cp -R "${content.src}/${subdir}/"* "${target}/${sanitizedDir}"
+        echo "${content.name}: Done."
       ''
     ) "" content.subdirs
   );
