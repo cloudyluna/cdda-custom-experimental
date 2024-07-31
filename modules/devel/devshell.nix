@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 with pkgs;
 mkShell {
   buildInputs = [
@@ -8,5 +8,4 @@ mkShell {
     nixfmt-rfc-style
     gnumake
   ];
-
 }

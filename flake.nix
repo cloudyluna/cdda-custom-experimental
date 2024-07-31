@@ -24,98 +24,47 @@
       let
         pkgs = import nixpkgs { inherit system; };
         lib = pkgs.lib;
-        modules = import ./modules/default.nix { inherit pkgs; };
-
-        writeLauncherScript = ''
-          cat << EOF > launcher
-
-          #!${pkgs.runtimeShell}
-
-          if [[ -z "\$1" ]]; then
-              userdir="\$HOME/.cdda-custom-experimental"
-          else
-              userdir="\$1"
-          fi
-
-          $out/bin/cataclysm-tiles --basepath $out --userdir "\$userdir"
-
-          EOF
-
-          install -m755 -D launcher $out/bin/cdda-tiles-launcher
-        '';
-
-        makeInstallPhase = (
-          extraContentsInstaller: ''
-            runHook preInstall
-
-            mkdir $out
-
-            ${(extraContentsInstaller)}
-
-            cp -R data gfx doc $out
-
-            install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
-
-            ${writeLauncherScript}
-
-            runHook postInstall
-          ''
-        );
+        modules = import ./modules/default.nix { inherit pkgs lib; };
       in
       rec {
         packages = rec {
-          # With extra mods and all the goodies I like.
-          extras = lib.overrideDerivation default (
-            _:
+
+          extras-expanded = extras.overrideAttrs (
             let
-              cddaExtraContents = modules.extraContents;
-
-              installSubdirs = (
-                content: target:
-                lib.foldl' (
-                  acc: subdir:
-                  acc
-                  + ''
-                    cp -R "${content.src}/${subdir}" data/${target}
-                  ''
-                ) "" content.subdirs
-              );
-
-              installContents = (
-                contents: target:
-                lib.foldl' (
-                  acc: content:
-                  if content.subdirs == [ ] then
-                    acc
-                    + ''
-                      cp -R "${content.src}" data/${target}
-                    ''
-                  else
-                    acc + "${(installSubdirs content target)}"
-                ) "" contents
-              );
-
-              installExtraContents = ''
-                ${installContents cddaExtraContents.mods "mods"}
-                ${installContents cddaExtraContents.soundPacks "sound"}
-              '';
-
+              extraContents = modules.cddaExtraExpandedContents;
             in
             {
-              installPhase = (makeInstallPhase installExtraContents);
+              prePatch = (modules.contentsInstaller.installExtraContents extraContents ".");
             }
           );
 
-          development = lib.overrideDerivation default (origin: {
+          # With extra mods and all the goodies I like.
+          extras = default.overrideAttrs (
+            let
+
+              extraContents = modules.cddaExtraContents;
+            in
+            {
+              prePatch = (modules.contentsInstaller.installExtraContents extraContents ".");
+              patchFlags = [
+                "-p1"
+                "-d"
+                "data/mods"
+              ];
+              patches = [ ./patches/minimods/minimods.patch ];
+            }
+          );
+
+          development = default.overrideAttrs (previousAttrs: rec {
             name = "json_formatter.cgi";
-            nativeBuildInputs = origin.nativeBuildInputs ++ [ pkgs.stdenv.cc.cc ];
+            nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ pkgs.stdenv.cc.cc ];
             buildInputs = [ ];
             installPhase = ''
               runHook preInstall
 
               mkdir $out
 
-              install -m755 -D json_formatter.cgi $out/bin/json_formatter.cgi
+              install -m755 -D ${name} $out/bin/${name}
 
               runHook postInstall
             '';
@@ -124,6 +73,36 @@
           default =
             let
               gameSettings = modules.cddaGameSettings;
+              writeLauncherScript = ''
+                cat << EOF > launcher
+
+                #!${pkgs.runtimeShell}
+
+                if [[ -z "\$1" ]]; then
+                    userdir="\$HOME/.cdda-custom-experimental"
+                else
+                    userdir="\$1"
+                fi
+
+                $out/bin/cataclysm-tiles --basepath $out --userdir "\$userdir"
+
+                EOF
+
+                install -m755 -D launcher $out/bin/cdda-tiles-launcher
+              '';
+
+              makeInstallPhase = ''
+                runHook preInstall
+
+                mkdir -p $out
+                cp -R data gfx doc $out
+
+                install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
+
+                ${writeLauncherScript}
+
+                runHook postInstall
+              '';
             in
             pkgs.stdenvNoCC.mkDerivation {
               name = "cdda-tiles-launcher";
@@ -142,9 +121,11 @@
                 SDL2_ttf
               ];
 
+              dontConfigure = true;
+              dontBuild = true;
               dontStrip = true;
 
-              installPhase = (makeInstallPhase "");
+              installPhase = makeInstallPhase;
             };
         };
 

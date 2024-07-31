@@ -1,0 +1,36 @@
+diff --git a/No_portal_storms - Steam 0.G/modinfo.json b/No_portal_storms - Steam 0.G/modinfo.json
+index 3dfb380..620950b 100644
+--- a/No_portal_storms - Steam 0.G/modinfo.json	
++++ b/No_portal_storms - Steam 0.G/modinfo.json	
+@@ -4,9 +4,8 @@
+     "id": "minimod_no_portal_storms",
+     "name": "0.G. No Portal Storms",
+     "authors": [ "Candlebury" ],
+-    "maintainer": [ "Candlebury" ],
++    "maintainers": [ "Candlebury" ],
+     "description": "Disables Portal Storms.  Some vanilla missions and other mod content might become inaccesible.",
+-    "steam_id": 3145472516,
+     "category": "rebalance",
+     "dependencies": [ "dda" ]
+   },
+diff --git a/No_rust - Steam 0.G/modinfo.json b/No_rust - Steam 0.G/modinfo.json
+index 3503451..5c14f38 100644
+--- a/No_rust - Steam 0.G/modinfo.json	
++++ b/No_rust - Steam 0.G/modinfo.json	
+@@ -3,7 +3,6 @@
+     "type": "MOD_INFO",
+     "id": "minimod_no_rust",
+     "name": "0.G. No Skill Rust",
+-    "steam_id": 3142744628,
+     "authors": [ "John-Candlebury" ],
+     "maintainers": [ "John-Candlebury" ],
+     "description": "Disables Skill Rust.",
+@@ -22,8 +21,6 @@
+     "id": "NO_SKILL_RUST_TRAIT",
+     "name": { "str": "no skill rust" },
+     "points": 0,
+-    "//": "We double dip, but maybe there's no need to?",
+-    "skill_rust_multiplier": 0,
+     "enchantments": [ { "condition": "ALLWAYS", "values": [ { "value": "SKILL_RUST_RESIST", "add": 100000 } ] } ],
+     "description": "Disables skill rust."
+   }

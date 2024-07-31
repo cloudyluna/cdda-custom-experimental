@@ -8,6 +8,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.4.0] - 31-07-2024
+
+### Added
+
+- Support for tilesets (gfx).
+
+- Add more content to `#extras`.
+    - jackledead_armory mod 
+        - I didn't include the world core addition submod due to
+          it causing an error prompt in the world loading screen.
+          I don't see anything major, but I don't want to risk it as a default
+          inclusion.
+          You can include this manually in your local nix file though.
+          See [modules/cdda-extras.nix](/modules/cdda-extras.nix).
+    - UndeadPeople tileset.
+
+- `No portal storm` submod from Minimods. Though, their `modinfo.json` need to be
+patched to fix some minor typo and remove Steam's related key-value.
+    - Patch code can be found in 
+    [patches/minimods/minimods.patch](/patches/minimods/minimods.patch)
+
+- Add `#extras-expanded` output to include a wider selection of mods, soundpacks and tilesets
+on top of `#extras`. Biggest downside with this output is that it's going to take a
+while to complete building and may need more PC resources to complete (connection bandwidth, larger disk,
+more RAM, etc).
+    - This comes with the Otopack's sound pack by default.
+
+### Changed
+
+- Bumped Minimods commit to `2b8fbb3ffe1ecded1b0716d6d6601977752457d5`.
+
+
+### Fixed
+
+- Nested directories specified in `subdirs` key in `cdda-extras.nix` now will
+be flattened to be consistent with other mods. 
+For example: `mods/deadjackal_armory`
+will live as `data/mods/deadjackal_armory` instead of `data/mods/mods/deadjackal_armory`.
+
+
 ## [0.3.0] - 29-07-2024
 
 ### Added

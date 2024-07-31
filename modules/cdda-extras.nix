@@ -1,8 +1,4 @@
-{ pkgs }:
-
-let
-  lib = pkgs.lib;
-in
+{ pkgs, lib }:
 {
   /*
      # Add, edit or remove mods/sound packs here.
@@ -31,7 +27,7 @@ in
     {
       name = "tankmod-revived";
       subdirs = [ "Tankmod_Revived" ];
-      src = builtins.fetchGit {
+      src = fetchGit {
         url = "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
         rev = "70278e9576a875c801ff6848e059312ae97a411c";
         shallow = true;
@@ -40,32 +36,51 @@ in
 
     {
       name = "minimods";
-      subdirs = [ "No_rust" ];
-      src = builtins.fetchGit {
+      subdirs = [
+        "No_rust - Steam 0.G"
+        "No_portal_storms - Steam 0.G"
+      ];
+      src = fetchGit {
         url = "https://github.com/John-Candlebury/CDDA-Minimods";
-        rev = "67a3f14a096f5780294ec32d3de48c4bb37b05e3";
-        shallow = true;
+        rev = "2b8fbb3ffe1ecded1b0716d6d6601977752457d5";
       };
     }
 
+    {
+      name = "jackledead_armory";
+      subdirs = [
+        "mods/jackledead_armory"
+
+        # Note, the current pinned CDDA game + and this mod version
+        # will cause an error in the world loading screen.
+        # Hence, why this mod is not included by default.
+        # Remove '#' below to include the world core content expansion.
+        # "mods/jackledead_armory_expansion"
+      ];
+      src = fetchGit {
+        url = "https://github.com/jackledead/jackledead_armory";
+        rev = "ddb48de223839f7b61390d4e58fa506878624a30";
+        shallow = true;
+      };
+    }
   ];
 
-  soundPacks = [
+  soundPacks = [ ];
 
-    # Example of adding Otopack's sound pack.
-    /*
-      {
-        name = "Otopack";
-        subdirs = [ "Otopack+ModsUpdates" ];
-        src = pkgs.fetchzip {
-          url = "https://github.com/Kenan2000/Otopack-Mods-Updates/"
-            + "archive/refs/tags/"
-            + "Otopack+ModsUpdates_09.03.2024.tar.gz";
-          hash =
-            "sha256-CzqDyPsFWKb6gJYserVd2X8nfJY2cugQNfC/0opLdvo=";
-        };
-      }
-    */
-
+  # also known as gfx(s)
+  tileSets = [
+    {
+      name = "UndeadPeople";
+      subdirs = [
+        "MshockXotto+REAL"
+        "MSX++UnDeadPeopleEdition"
+      ];
+      src = pkgs.fetchzip {
+        url =
+          "https://github.com/Theawesomeboophis/UndeadPeopleTileset/"
+          + "releases/download/7%2F2%2F24/Vanilla.zip";
+        hash = "sha256-e8FIcqF2JE5fxXSL7FNZLFretm0vN5AE6cFuQBFAn44=";
+      };
+    }
   ];
 }
