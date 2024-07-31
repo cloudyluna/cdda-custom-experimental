@@ -14,7 +14,7 @@ index 3dfb380..620950b 100644
      "dependencies": [ "dda" ]
    },
 diff --git a/No_rust - Steam 0.G/modinfo.json b/No_rust - Steam 0.G/modinfo.json
-index 3503451..ee906e0 100644
+index 3503451..5c14f38 100644
 --- a/No_rust - Steam 0.G/modinfo.json	
 +++ b/No_rust - Steam 0.G/modinfo.json	
 @@ -3,7 +3,6 @@
@@ -25,3 +25,12 @@ index 3503451..ee906e0 100644
      "authors": [ "John-Candlebury" ],
      "maintainers": [ "John-Candlebury" ],
      "description": "Disables Skill Rust.",
+@@ -22,8 +21,6 @@
+     "id": "NO_SKILL_RUST_TRAIT",
+     "name": { "str": "no skill rust" },
+     "points": 0,
+-    "//": "We double dip, but maybe there's no need to?",
+-    "skill_rust_multiplier": 0,
+     "enchantments": [ { "condition": "ALLWAYS", "values": [ { "value": "SKILL_RUST_RESIST", "add": 100000 } ] } ],
+     "description": "Disables skill rust."
+   }
