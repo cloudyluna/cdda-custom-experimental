@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.5.0] - 2-08-2024
+
+### Added
+
+- Arcana mod to `#extras`.
+
+### Fixed
+
+- Use the content name when when `subdirs` key is an empty list.
+
+### Changed
+
+- Bump CDDA experimental game version to `2024-08-01-0705`.
+
+
 ## [0.4.0] - 31-07-2024
 
 ### Added

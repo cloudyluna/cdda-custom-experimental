@@ -25,7 +25,7 @@
   */
   mods = [
     {
-      name = "tankmod-revived";
+      name = "Tankmod-Revived";
       subdirs = [ "Tankmod_Revived" ];
       src = fetchGit {
         url = "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
@@ -35,7 +35,7 @@
     }
 
     {
-      name = "minimods";
+      name = "Minimods";
       subdirs = [
         "No_rust - Steam 0.G"
         "No_portal_storms - Steam 0.G"
@@ -43,11 +43,12 @@
       src = fetchGit {
         url = "https://github.com/John-Candlebury/CDDA-Minimods";
         rev = "2b8fbb3ffe1ecded1b0716d6d6601977752457d5";
+        shallow = true;
       };
     }
 
     {
-      name = "jackledead_armory";
+      name = "Jackledead-Armory";
       subdirs = [
         "mods/jackledead_armory"
 
@@ -60,6 +61,16 @@
       src = fetchGit {
         url = "https://github.com/jackledead/jackledead_armory";
         rev = "ddb48de223839f7b61390d4e58fa506878624a30";
+        shallow = true;
+      };
+    }
+
+    {
+      name = "Arcana";
+      subdirs = [ "Arcana" ];
+      src = fetchGit {
+        url = "https://github.com/chaosvolt/cdda-arcana-mod";
+        rev = "a6c2d862edfaedde5ac1c47221b3847a75cc8b0d";
         shallow = true;
       };
     }

@@ -3,7 +3,11 @@ NIX_FORMATTER = nixfmt
 SOURCES = $(shell find . -name "*.nix")
 TARGET ?= .\#default
 
-.PHONY: all build format check
+URL_HASHER = nix-prefetch-url
+GIT_HASHER = nix-prefetch-git
+HASH_TARGET = ""
+
+.PHONY: all build format check url-hash git-hash
 
 all: format build
 
@@ -17,4 +21,10 @@ format: $(SOURCES)
 # if you encounter weird missing files issue.
 check: $(SOURCES)
 	$(NIX) flake check
+
+url-hash:
+	$(URL_HASHER) --quiet $(HASH_TARGET) | jq '.hash'
+
+git-hash:
+	$(GIT_HASHER) --quiet $(HASH_TARGET)
 
