@@ -5,8 +5,7 @@ let
     let
       splittedDirPaths = builtins.split "\/" originalDir;
       isANestedDir = builtins.length splittedDirPaths > 1;
-      deepestDir = pkgs.lib.last splittedDirPaths;
-      
+      deepestDir = lib.last splittedDirPaths;
     in
     if isANestedDir then deepestDir else originalDir
   );
@@ -30,10 +29,10 @@ let
         # Not sure why, though.
         install -d 0644 "${target}/${sanitizedSubdir}"
 
-        echo "${content.name}: Installing into "${target}/${sanitizedSubdir}" ...."
+        echo "${content.name}:[${sanitizedSubdir}]: Installing to "${target}/${sanitizedSubdir}" ...."
 
         cp -R "${content.src}/${subdir}/"* "${target}/${sanitizedSubdir}"
-        
+
         echo "${content.name}: Done."
       ''
     ) "" content.subdirs
@@ -47,7 +46,13 @@ let
       + (
         if content.subdirs == [ ] then
           ''
-            cp -R "${content.src}" ${target}
+            echo "Copying whole parent directory"
+            echo "${content.name}: Installing to ${target}/${content.name}"
+
+            install -d 0644 "${target}/${content.name}"
+            cp -R "${content.src}/"* "${target}/${content.name}"
+
+            echo "${content.name}: Done."
           ''
         else
           "${(installSubdirs content target)}"

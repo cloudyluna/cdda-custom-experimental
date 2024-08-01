@@ -71,7 +71,7 @@ Once it is installed, run `cdda-tiles-launcher` and enjoy the game!
 - `nix run --refresh github:cloudyluna/cdda-custom-experimental`
 
 ## Flake configuration version
-0.4.0
+0.5.0
 
 ## Flake Outputs
 
@@ -100,11 +100,10 @@ pre-built executables from [here](https://github.com/CleverRaven/Cataclysm-DDA/r
 #### Current game type used
 - Edition: Native GUI (tiles) bundled with CC-Sounds sound pack.
   > Note: CC-Sounds need to be enabled manually in your game settings! (Options > General > Soundpack)
-- Version: 2024-07-24-0510
-- Release page URL: https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-07-24-0510
-- Supported architectures: x86_64-linux
-- Full changelog: https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-07-24-0150...cdda-experimental-2024-07-24-0510
-- Executable tarball direct download: https://github.com/CleverRaven/Cataclysm-DDA/releases/download/cdda-experimental-2024-07-24-0510/cdda-linux-tiles-sounds-x64-2024-07-24-0510.tar.gz
+- **Version**: 2024-08-01-0705
+- **Supported architecture**: x86_64-linux
+- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-08-01-0705)
+- [Full changelog since 2024-07-24-0150](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-07-24-0150...cdda-experimental-2024-08-01-0705)
 
 #### Exposed executables:
   - `cdda-tiles-launcher` - ***Most user should use this.*** A shell script to 
@@ -148,6 +147,9 @@ while playing the game.
   - More cool weapons!!!
   - Only additional items mod are added which doesn't include the world
   content expansion submod. See [modules/cdda-extras.nix](/modules/cdda-extras.nix) if you want to add.
+
+- [Arcana](https://github.com/chaosvolt/cdda-arcana-mod/tree/a6c2d862edfaedde5ac1c47221b3847a75cc8b0d)
+  - Magical items, professions and all the wizardry lore goodness.
 
 #### Included tilesets
 - [UndeadPeopleTileset](https://github.com/Theawesomeboophis/UndeadPeopleTileset/tree/559c0c124afe73c5639c171acee77312f3d68d68)
