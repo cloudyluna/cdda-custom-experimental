@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 4-08-2024
+
+### Changed
+
+- Bump `Arcana` mod revision to `67aeeaea9581a3482e914134a980db84a2cf84d5`.
+
 
 ## [0.5.0] - 2-08-2024
 

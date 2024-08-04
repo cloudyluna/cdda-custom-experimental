@@ -71,7 +71,7 @@ Once it is installed, run `cdda-tiles-launcher` and enjoy the game!
 - `nix run --refresh github:cloudyluna/cdda-custom-experimental`
 
 ## Flake configuration version
-0.5.0
+0.5.1
 
 ## Flake Outputs
 
@@ -148,7 +148,7 @@ while playing the game.
   - Only additional items mod are added which doesn't include the world
   content expansion submod. See [modules/cdda-extras.nix](/modules/cdda-extras.nix) if you want to add.
 
-- [Arcana](https://github.com/chaosvolt/cdda-arcana-mod/tree/a6c2d862edfaedde5ac1c47221b3847a75cc8b0d)
+- [Arcana](https://github.com/chaosvolt/cdda-arcana-mod/tree/67aeeaea9581a3482e914134a980db84a2cf84d5)
   - Magical items, professions and all the wizardry lore goodness.
 
 #### Included tilesets

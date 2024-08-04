@@ -70,7 +70,7 @@
       subdirs = [ "Arcana" ];
       src = fetchGit {
         url = "https://github.com/chaosvolt/cdda-arcana-mod";
-        rev = "a6c2d862edfaedde5ac1c47221b3847a75cc8b0d";
+        rev = "67aeeaea9581a3482e914134a980db84a2cf84d5";
         shallow = true;
       };
     }
