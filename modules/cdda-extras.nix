@@ -70,7 +70,7 @@
       subdirs = [ "Arcana" ];
       src = fetchGit {
         url = "https://github.com/chaosvolt/cdda-arcana-mod";
-        rev = "67aeeaea9581a3482e914134a980db84a2cf84d5";
+        rev = "76b2dc9257441734baffb0c0e17d50d7a0e58073";
         shallow = true;
       };
     }
@@ -89,8 +89,8 @@
       src = pkgs.fetchzip {
         url =
           "https://github.com/Theawesomeboophis/UndeadPeopleTileset/"
-          + "releases/download/7%2F2%2F24/Vanilla.zip";
-        hash = "sha256-e8FIcqF2JE5fxXSL7FNZLFretm0vN5AE6cFuQBFAn44=";
+          + "releases/download/8%2F16%2F24/Vanilla.zip";
+        hash = "sha256-QOXepCWNj4sNWDRPxiWpzdwDEHITkk6WW0vfWvoDOFM=";
       };
     }
   ];

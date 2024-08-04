@@ -59,19 +59,19 @@ you are running `nix` on other Linux distribution.
 
 ### Remotely
 
-- `nix profile install --refresh github:cloudyluna/cdda-custom-experimental`
+- `nix profile install --refresh github:cloudyluna/cdda-custom-experimental#extras`
 
 ### Locally
-- `nix profile install --refresh .`
+- `nix profile install --refresh .#extras`
 
 Once it is installed, run `cdda-tiles-launcher` and enjoy the game!
 
 ### Run remotely
 
-- `nix run --refresh github:cloudyluna/cdda-custom-experimental`
+- `nix run --refresh github:cloudyluna/cdda-custom-experimental#extras`
 
 ## Flake configuration version
-0.5.1
+0.6.0
 
 ## Flake Outputs
 
@@ -99,11 +99,11 @@ pre-built executables from [here](https://github.com/CleverRaven/Cataclysm-DDA/r
 
 #### Current game type used
 - Edition: Native GUI (tiles) bundled with CC-Sounds sound pack.
-  > Note: CC-Sounds need to be enabled manually in your game settings! (Options > General > Soundpack)
-- **Version**: 2024-08-01-0705
+  > Note: If CC-Sounds is not enabled by default, you can enable it manually in your game settings! (Options > General > Soundpack)
+- **Version**: 2024-09-06-2220
 - **Supported architecture**: x86_64-linux
-- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-08-01-0705)
-- [Full changelog since 2024-07-24-0150](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-07-24-0150...cdda-experimental-2024-08-01-0705)
+- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-09-06-2220)
+- [Full changelog since 2024-08-01-0705](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-08-01-0705...cdda-experimental-2024-09-06-2220)
 
 #### Exposed executables:
   - `cdda-tiles-launcher` - ***Most user should use this.*** A shell script to 
@@ -148,11 +148,11 @@ while playing the game.
   - Only additional items mod are added which doesn't include the world
   content expansion submod. See [modules/cdda-extras.nix](/modules/cdda-extras.nix) if you want to add.
 
-- [Arcana](https://github.com/chaosvolt/cdda-arcana-mod/tree/67aeeaea9581a3482e914134a980db84a2cf84d5)
+- [Arcana](https://github.com/chaosvolt/cdda-arcana-mod/tree/76b2dc9257441734baffb0c0e17d50d7a0e58073)
   - Magical items, professions and all the wizardry lore goodness.
 
 #### Included tilesets
-- [UndeadPeopleTileset](https://github.com/Theawesomeboophis/UndeadPeopleTileset/tree/559c0c124afe73c5639c171acee77312f3d68d68)
+- [UndeadPeopleTileset](https://github.com/Theawesomeboophis/UndeadPeopleTileset/tree/65a9f538897643c084c93133861eb13e26d47db8)
   - Really good looking tileset/gfx and I personally favor it for most of 
   my runs.
   - Somewhat sizable in download size (20Mb ish) and still small enough. 

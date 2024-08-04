@@ -7,14 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.5.1] - 4-08-2024
+## [0.6.0] - 2024-09-07
+
+### Changed
+
+- Bump 'CDDA' game version to `2024-09-06-2220`.
+- Bump `Arcana` mod revision to `76b2dc9257441734baffb0c0e17d50d7a0e58073`.
+- Bump `UndeadPeople` tileset to `65a9f538897643c084c93133861eb13e26d47db8`, aka Tutti Frutti (August Release 2).
+
+## [0.5.1] - 2024-08-04
 
 ### Changed
 
 - Bump `Arcana` mod revision to `67aeeaea9581a3482e914134a980db84a2cf84d5`.
 
 
-## [0.5.0] - 2-08-2024
+## [0.5.0] - 2024-08-02
 
 ### Added
 
@@ -29,7 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump CDDA experimental game version to `2024-08-01-0705`.
 
 
-## [0.4.0] - 31-07-2024
+## [0.4.0] - 2024-07-31
 
 ### Added
 
@@ -69,7 +77,7 @@ For example: `mods/deadjackal_armory`
 will live as `data/mods/deadjackal_armory` instead of `data/mods/mods/deadjackal_armory`.
 
 
-## [0.3.0] - 29-07-2024
+## [0.3.0] - 2024-07-29
 
 ### Added
 - A development environment shell (aka devshell) and a Makefile to make development of this flake less tedious and reproducible as well.
@@ -86,7 +94,7 @@ will live as `data/mods/deadjackal_armory` instead of `data/mods/mods/deadjackal
 `#development`.
 
 
-## [0.2.0] - 27-07-2024
+## [0.2.0] - 2024-07-27
 
 ### Added
 - Enable a functionality to add audio packs.
@@ -98,6 +106,6 @@ the place in the flake.nix file.
 
 - Maybe add tilesets support later if I'd need it?
 
-## [0.1.0.0] - 24-07-2024
+## [0.1.0.0] - 2024-07-24
 
 Initial release.
