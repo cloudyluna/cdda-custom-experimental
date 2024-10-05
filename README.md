@@ -71,7 +71,7 @@ Once it is installed, run `cdda-tiles-launcher` and enjoy the game!
 - `nix run --refresh github:cloudyluna/cdda-custom-experimental#extras`
 
 ## Flake configuration version
-0.6.0
+0.7.0
 
 ## Flake Outputs
 
@@ -102,8 +102,8 @@ pre-built executables from [here](https://github.com/CleverRaven/Cataclysm-DDA/r
   > Note: If CC-Sounds is not enabled by default, you can enable it manually in your game settings! (Options > General > Soundpack)
 - **Version**: 2024-09-06-2220
 - **Supported architecture**: x86_64-linux
-- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-09-06-2220)
-- [Full changelog since 2024-08-01-0705](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-08-01-0705...cdda-experimental-2024-09-06-2220)
+- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-10-05-0405)
+- [Full changelog since 2024-09-06-2220](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-09-06-2220...cdda-experimental-2024-10-05-0405)
 
 #### Exposed executables:
   - `cdda-tiles-launcher` - ***Most user should use this.*** A shell script to 
