@@ -1,0 +1,37 @@
+name: "Test"
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: cachix/install-nix-action@v27
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Checking if flake codes are syntactically correct.
+      run: nix flake check
+
+    - name: Building base CDDA game with basic mods (#extras).
+      run: nix build .#extras
+
+    - name: Printing all the post-build extra installed content directories.
+      run: |
+        echo
+        echo "MODs"
+        ls "$(readlink -f result)/data/mods"
+        
+        echo
+        echo "SOUNDs"
+        ls "$(readlink -f result)/data/sound"
+
+        echo
+        echo "GFXs"
+        ls "$(readlink -f result)/gfx"
+
+    - name: Show the internal build log of the flake.
+      run: nix log .#extras | cat
