@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.7.0] - 2024-10-06
 
+### Changed
+
 - Bump `CDDA` game version to `2024-10-05-0405`.
+- Bump "No_rust" from Minimods to `b039afd3007b083d191f4bf63d35f9b28896d8e4`. Previously we were using the Steam 0.G edition with minimal compatibility patch.
 
 ## [0.6.0] - 2024-09-07
 

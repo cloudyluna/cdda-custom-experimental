@@ -136,7 +136,7 @@ while playing the game.
    - M1 Abrams, electric powered mini tank, etc. 
    I love battle tanks in this game! Cozy and comfy.
 
-- [Minimods](https://github.com/John-Candlebury/CDDA-Minimods/tree/2b8fbb3ffe1ecded1b0716d6d6601977752457d5)
+- [Minimods](https://github.com/John-Candlebury/CDDA-Minimods/tree/b039afd3007b083d191f4bf63d35f9b28896d8e4)
   - Included submods:
     - ***No Rust*** because I don't want character skills to decay at all.
     Enable this in your mod balance's sub-tab menu.

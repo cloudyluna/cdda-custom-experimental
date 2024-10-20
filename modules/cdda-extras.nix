@@ -37,12 +37,12 @@
     {
       name = "Minimods";
       subdirs = [
-        "No_rust - Steam 0.G"
+        "No_rust"
         "No_portal_storms - Steam 0.G"
       ];
       src = fetchGit {
         url = "https://github.com/John-Candlebury/CDDA-Minimods";
-        rev = "2b8fbb3ffe1ecded1b0716d6d6601977752457d5";
+        rev = "b039afd3007b083d191f4bf63d35f9b28896d8e4";
         shallow = true;
       };
     }
