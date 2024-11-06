@@ -71,7 +71,7 @@ Once it is installed, run `cdda-tiles-launcher` and enjoy the game!
 - `nix run --refresh github:cloudyluna/cdda-custom-experimental#extras`
 
 ## Flake configuration version
-0.6.0
+0.7.0
 
 ## Flake Outputs
 
@@ -100,10 +100,10 @@ pre-built executables from [here](https://github.com/CleverRaven/Cataclysm-DDA/r
 #### Current game type used
 - Edition: Native GUI (tiles) bundled with CC-Sounds sound pack.
   > Note: If CC-Sounds is not enabled by default, you can enable it manually in your game settings! (Options > General > Soundpack)
-- **Version**: 2024-09-06-2220
+- **Version**: 2024-11-03-0625
 - **Supported architecture**: x86_64-linux
-- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-09-06-2220)
-- [Full changelog since 2024-08-01-0705](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-08-01-0705...cdda-experimental-2024-09-06-2220)
+- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-11-03-0625)
+- [Full changelog since 2024-09-06-2220](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-09-06-2220...cdda-experimental-2024-11-03-0625)
 
 #### Exposed executables:
   - `cdda-tiles-launcher` - ***Most user should use this.*** A shell script to 
@@ -132,11 +132,11 @@ while playing the game.
 > NOTE: Remember to enable them in your world creation menu by pressing 'm' button and select your mod of choice in the world creation screen.
 
 #### Included mods
-- [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod/tree/70278e9576a875c801ff6848e059312ae97a411c)
+- [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod/tree/e542d43df005acb65468430821bc318886d85bf0)
    - M1 Abrams, electric powered mini tank, etc. 
-   I love battle tanks in this game! Cozy and comfy.
+   I love battle tanks in this game!
 
-- [Minimods](https://github.com/John-Candlebury/CDDA-Minimods/tree/2b8fbb3ffe1ecded1b0716d6d6601977752457d5)
+- [Minimods](https://github.com/John-Candlebury/CDDA-Minimods/tree/b039afd3007b083d191f4bf63d35f9b28896d8e4)
   - Included submods:
     - ***No Rust*** because I don't want character skills to decay at all.
     Enable this in your mod balance's sub-tab menu.
@@ -147,9 +147,6 @@ while playing the game.
   - More cool weapons!!!
   - Only additional items mod are added which doesn't include the world
   content expansion submod. See [modules/cdda-extras.nix](/modules/cdda-extras.nix) if you want to add.
-
-- [Arcana](https://github.com/chaosvolt/cdda-arcana-mod/tree/76b2dc9257441734baffb0c0e17d50d7a0e58073)
-  - Magical items, professions and all the wizardry lore goodness.
 
 #### Included tilesets
 - [UndeadPeopleTileset](https://github.com/Theawesomeboophis/UndeadPeopleTileset/tree/65a9f538897643c084c93133861eb13e26d47db8)

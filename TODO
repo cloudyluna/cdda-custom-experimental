@@ -1,4 +1,3 @@
-- Enable CC-Sounds by default for CDDA game.
 - Copy the game directory into $USERDIR.
     - Warn that anything that user put in $GAMEDIR in their $USERDIR will lose
     all the new updates from flake $out dir. They need to backup and restore 

@@ -3,9 +3,19 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project *loosely* adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Minor version bumps could mean removal of things.
 
-## [Unreleased]
+## [0.7.0] - 2024-11-07
+
+### Removed
+
+- `Arcana` mod from `#extras`. I personally don't really use it as much and thus I don't see the need for it to be included by default. One can always add this mod manually like any other, though.
+
+### Changed
+
+- Bump `CDDA` game version to `2024-11-03-0625`.
+- Bump `No_rust` from Minimods to `b039afd3007b083d191f4bf63d35f9b28896d8e4`. Previously we were using the Steam 0.G edition with minimal compatibility patch.
+- Bump `Tankmod_Revived` to `e542d43df005acb65468430821bc318886d85bf0`.
 
 ## [0.6.0] - 2024-09-07
 
