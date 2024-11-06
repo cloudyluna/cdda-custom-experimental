@@ -18,11 +18,13 @@ jobs:
         script: |
           echo "Loading devShell environment for testing"
 
-    - name: Check if flake files are formatted
-      run: make format-check
+          make format-check
 
-    - name: Check if flake files are syntactically correct
-      run: make check
+          make check
+
+    - uses: cachix/install-nix-action@v27
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build base CDDA game with basic mods (#extras)
       run: nix build .#extras
