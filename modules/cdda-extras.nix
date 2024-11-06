@@ -29,7 +29,7 @@
       subdirs = [ "Tankmod_Revived" ];
       src = fetchGit {
         url = "https://github.com/chaosvolt/cdda-tankmod-revived-mod";
-        rev = "70278e9576a875c801ff6848e059312ae97a411c";
+        rev = "e542d43df005acb65468430821bc318886d85bf0";
         shallow = true;
       };
     }

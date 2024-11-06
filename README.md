@@ -132,9 +132,9 @@ while playing the game.
 > NOTE: Remember to enable them in your world creation menu by pressing 'm' button and select your mod of choice in the world creation screen.
 
 #### Included mods
-- [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod/tree/70278e9576a875c801ff6848e059312ae97a411c)
+- [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod/tree/e542d43df005acb65468430821bc318886d85bf0)
    - M1 Abrams, electric powered mini tank, etc. 
-   I love battle tanks in this game! Cozy and comfy.
+   I love battle tanks in this game!
 
 - [Minimods](https://github.com/John-Candlebury/CDDA-Minimods/tree/b039afd3007b083d191f4bf63d35f9b28896d8e4)
   - Included submods:
