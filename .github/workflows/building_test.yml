@@ -16,7 +16,7 @@ jobs:
       with:
         flakes: nixpkgs#nixfmt-rfc-style nixpkgs#gnumake
         script: |
-          echo "Loading devShell environment for testing"
+          echo "Loading into shell environment for testing"
 
           make format-check
 
