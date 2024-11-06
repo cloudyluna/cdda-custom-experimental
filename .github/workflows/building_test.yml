@@ -22,29 +22,21 @@ jobs:
 
           make check
 
-    - uses: cachix/install-nix-action@v27
-      with:
-        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          nix build .#extras
 
-    - name: Build base CDDA game with basic mods (#extras)
-      run: nix build .#extras
+          
+          echo "MODs"
+          echo "------------------------------"
+          ls "$(readlink -f result)/data/mods"
 
-    - name: Print all the post-build extra installed content directories
-      run: |
-        echo
-        echo "MODs"
-        echo "------------------------------"
-        ls "$(readlink -f result)/data/mods"
+          echo
+          echo "SOUNDs"
+          echo "------------------------------"
+          ls "$(readlink -f result)/data/sound"
 
-        echo
-        echo "SOUNDs"
-        echo "------------------------------"
-        ls "$(readlink -f result)/data/sound"
+          echo
+          echo "GFXs"
+          echo "-----------------------------"
+          ls "$(readlink -f result)/gfx"
 
-        echo
-        echo "GFXs"
-        echo "-----------------------------"
-        ls "$(readlink -f result)/gfx"
-
-    - name: Show the internal build log of the flake
-      run: nix log .#extras | cat
+          nix log .#extras | cat
