@@ -102,7 +102,7 @@ pre-built executables from [here](https://github.com/CleverRaven/Cataclysm-DDA/r
   > Note: If CC-Sounds is not enabled by default, you can enable it manually in your game settings! (Options > General > Soundpack)
 - **Version**: 2024-11-06-0003
 - **Supported architecture**: x86_64-linux
-- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-10-05-0405)
+- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-11-06-0003)
 - [Full changelog since 2024-09-06-2220](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-09-06-2220...cdda-experimental-2024-11-06-0003)
 
 #### Exposed executables:
