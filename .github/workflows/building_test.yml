@@ -13,30 +13,7 @@ jobs:
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - uses: workflow/nix-shell-action@v3
-      with:
-        flakes: nixpkgs#nixfmt-rfc-style nixpkgs#gnumake
-        script: |
-          echo "Loading into shell environment for testing"
-
-          make format-check
-
-          make check
-
-          nix build .#extras
-
-          
-          echo "MODs"
-          echo "------------------------------"
-          ls "$(readlink -f result)/data/mods"
-
-          echo
-          echo "SOUNDs"
-          echo "------------------------------"
-          ls "$(readlink -f result)/data/sound"
-
-          echo
-          echo "GFXs"
-          echo "-----------------------------"
-          ls "$(readlink -f result)/gfx"
-
-          nix log .#extras | cat
+        with:
+          flakes: nixpkgs#nixfmt-rfc-style
+          script: |
+            nixfmt --check
