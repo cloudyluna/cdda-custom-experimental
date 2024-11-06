@@ -15,6 +15,8 @@ jobs:
     - uses: workflow/nix-shell-action@v3
       with:
         flakes-from-devshell: true
+        script: |
+          echo "Loading devShell environment for testing"
 
     - name: Check if flake files are formatted
       run: make format-check
