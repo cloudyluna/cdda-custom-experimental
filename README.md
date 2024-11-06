@@ -148,9 +148,6 @@ while playing the game.
   - Only additional items mod are added which doesn't include the world
   content expansion submod. See [modules/cdda-extras.nix](/modules/cdda-extras.nix) if you want to add.
 
-- [Arcana](https://github.com/chaosvolt/cdda-arcana-mod/tree/76b2dc9257441734baffb0c0e17d50d7a0e58073)
-  - Magical items, professions and all the wizardry lore goodness.
-
 #### Included tilesets
 - [UndeadPeopleTileset](https://github.com/Theawesomeboophis/UndeadPeopleTileset/tree/65a9f538897643c084c93133861eb13e26d47db8)
   - Really good looking tileset/gfx and I personally favor it for most of 

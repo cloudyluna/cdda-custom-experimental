@@ -3,9 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project *loosely* adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Minor version bumps could mean removal of things.
 
 ## [0.7.0] - 2024-11-06
+
+### Removed
+
+- `Arcana` mod from `#extras`. I personally don't really use it as much and thus I don't see the need for it to be included by default. One can always add this mod manually like any other, though.
 
 ### Changed
 
