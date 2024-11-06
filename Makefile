@@ -17,6 +17,9 @@ build: $(SOURCES)
 format: $(SOURCES)
 	$(NIX_FORMATTER) $(SOURCES)
 
+format-check: $(SOURCES)
+	$(NIX_FORMATTER) --check $(SOURCES)
+
 # NOTE: Make sure to git add the latest state of files to your current git tree 
 # if you encounter weird missing files issue.
 check: $(SOURCES)

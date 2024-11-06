@@ -1,4 +1,4 @@
-name: "Test"
+name: "Building test"
 on:
   pull_request:
   push:
@@ -13,25 +13,31 @@ jobs:
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Checking if flake codes are syntactically correct.
-      run: nix flake check
+    - name: Check if flake files are formatted
+      run: make format-check
 
-    - name: Building base CDDA game with basic mods (#extras).
+    - name: Check if flake files are syntactically correct
+      run: make check
+
+    - name: Build base CDDA game with basic mods (#extras)
       run: nix build .#extras
 
-    - name: Printing all the post-build extra installed content directories.
+    - name: Print all the post-build extra installed content directories
       run: |
         echo
         echo "MODs"
+        echo "------------------------------"
         ls "$(readlink -f result)/data/mods"
-        
+
         echo
         echo "SOUNDs"
+        echo "------------------------------"
         ls "$(readlink -f result)/data/sound"
 
         echo
         echo "GFXs"
+        echo "-----------------------------"
         ls "$(readlink -f result)/gfx"
 
-    - name: Show the internal build log of the flake.
+    - name: Show the internal build log of the flake
       run: nix log .#extras | cat
