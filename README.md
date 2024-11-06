@@ -100,10 +100,10 @@ pre-built executables from [here](https://github.com/CleverRaven/Cataclysm-DDA/r
 #### Current game type used
 - Edition: Native GUI (tiles) bundled with CC-Sounds sound pack.
   > Note: If CC-Sounds is not enabled by default, you can enable it manually in your game settings! (Options > General > Soundpack)
-- **Version**: 2024-11-06-0003
+- **Version**: 2024-11-03-0625
 - **Supported architecture**: x86_64-linux
-- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-11-06-0003)
-- [Full changelog since 2024-09-06-2220](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-09-06-2220...cdda-experimental-2024-11-06-0003)
+- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-11-03-0625)
+- [Full changelog since 2024-09-06-2220](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-09-06-2220...cdda-experimental-2024-11-03-0625)
 
 #### Exposed executables:
   - `cdda-tiles-launcher` - ***Most user should use this.*** A shell script to 

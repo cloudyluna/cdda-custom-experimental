@@ -13,7 +13,7 @@ and this project *loosely* adheres to [Semantic Versioning](https://semver.org/s
 
 ### Changed
 
-- Bump `CDDA` game version to `2024-11-06-0003`.
+- Bump `CDDA` game version to `2024-11-03-0625`.
 - Bump `No_rust` from Minimods to `b039afd3007b083d191f4bf63d35f9b28896d8e4`. Previously we were using the Steam 0.G edition with minimal compatibility patch.
 - Bump `Tankmod_Revived` to `e542d43df005acb65468430821bc318886d85bf0`.
 
