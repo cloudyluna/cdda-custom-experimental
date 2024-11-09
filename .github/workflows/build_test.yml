@@ -1,0 +1,68 @@
+name: "build_test"
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: cachix/install-nix-action@v27
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Check if flake codebase is syntactically correct
+      run: nix flake check
+
+
+    ### EXTRAS ###
+
+    - name: Build flake output (#extras)
+      run: nix build .#extras
+
+    - name: Display the post-build additional installed content directories (#extras)
+      run: |
+        echo
+        echo "MODs"
+        echo "--------------------------------------"
+        ls "$(readlink -f result)/data/mods"
+
+        echo
+        echo "SOUNDs"
+        echo "--------------------------------------"
+        ls "$(readlink -f result)/data/sound"
+
+        echo
+        echo "GFXs"
+        echo "--------------------------------------"
+        ls "$(readlink -f result)/gfx"
+
+    - name: Display the internal build log of the flake (#extras)
+      run: nix log .#extras | cat
+
+    ### DEVELOPMENT ###
+
+    - name: Build flake output (#development)
+      run: nix build .#development
+
+    - name: Display the post-build additional installed content directories (#development)
+      run: |
+        echo
+        echo "MODs"
+        echo "--------------------------------------"
+        ls "$(readlink -f result)/data/mods"
+
+        echo
+        echo "SOUNDs"
+        echo "--------------------------------------"
+        ls "$(readlink -f result)/data/sound"
+
+        echo
+        echo "GFXs"
+        echo "--------------------------------------"
+        ls "$(readlink -f result)/gfx"
+
+    - name: Display the internal build log of the flake (#development)
+      run: nix log .#development | cat

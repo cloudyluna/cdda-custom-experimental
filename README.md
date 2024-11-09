@@ -71,7 +71,7 @@ Once it is installed, run `cdda-tiles-launcher` and enjoy the game!
 - `nix run --refresh github:cloudyluna/cdda-custom-experimental#extras`
 
 ## Flake configuration version
-0.7.0
+0.8.0
 
 ## Flake Outputs
 
@@ -100,10 +100,10 @@ pre-built executables from [here](https://github.com/CleverRaven/Cataclysm-DDA/r
 #### Current game type used
 - Edition: Native GUI (tiles) bundled with CC-Sounds sound pack.
   > Note: If CC-Sounds is not enabled by default, you can enable it manually in your game settings! (Options > General > Soundpack)
-- **Version**: 2024-11-03-0625
+- **Version**: 2024-11-08-2048
 - **Supported architecture**: x86_64-linux
-- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-11-03-0625)
-- [Full changelog since 2024-09-06-2220](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-09-06-2220...cdda-experimental-2024-11-03-0625)
+- [Release page](https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/cdda-experimental-2024-11-08-2048)
+- [Full changelog since 2024-11-03-0625](https://github.com/CleverRaven/Cataclysm-DDA/compare/cdda-experimental-2024-11-03-0625...cdda-experimental-2024-11-08-2048)
 
 #### Exposed executables:
   - `cdda-tiles-launcher` - ***Most user should use this.*** A shell script to 
@@ -132,7 +132,7 @@ while playing the game.
 > NOTE: Remember to enable them in your world creation menu by pressing 'm' button and select your mod of choice in the world creation screen.
 
 #### Included mods
-- [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod/tree/e542d43df005acb65468430821bc318886d85bf0)
+- [Tankmod Revived](https://github.com/chaosvolt/cdda-tankmod-revived-mod/tree/5b1ea6a16f9cbdde3ce8b5dd01d1704cf8625c61)
    - M1 Abrams, electric powered mini tank, etc. 
    I love battle tanks in this game!
 
@@ -203,6 +203,10 @@ reproducibility purposes (used in devshells).
 and data contents.
 
 #### Included tools
+- `cdda-tiles-launcher-development` - A script similar to regular `cdda-tiles-launcher`
+but it also copies & points to the content (mod, gfx, sound, doc, etc) into `$HOME/.cdda-custom-experimental-development/content` by default on first launch. 
+  - This allows user to change & update contents without first requiring to manually
+  edit the cdda-custom-experimental Nix flake files like in traditional Linux system.
 - `json_formatter.cgi` - Format mods JSON file according to CDDA's 
 maintainer preferred style.
 
