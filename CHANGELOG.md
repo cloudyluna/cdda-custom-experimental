@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add `cdda-tiles-launcher-dev` to `#development` output.
+- Add `cdda-tiles-launcher-development` to `#development` output.
     - Now, as a private CDDA mod author using this flake, I can replace mods
-    and other contents from within `$HOME/.cdda-custom-experimental-dev/content`
+    and other contents from within `$HOME/.cdda-custom-experimental-development/content`
     directory without the need to update this flake anymore. This is far more
     convenient with this new script being available by default.
     

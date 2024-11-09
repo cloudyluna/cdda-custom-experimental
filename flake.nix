@@ -55,20 +55,59 @@
             }
           );
 
-          development = default.overrideAttrs (previousAttrs: rec {
-            name = "json_formatter.cgi";
-            nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ pkgs.stdenv.cc.cc ];
-            buildInputs = [ ];
-            installPhase = ''
-              runHook preInstall
+          development = default.overrideAttrs (
+            let
+              launcherFile = "cdda-tiles-launcher-development";
+              jsonFormatterFile = "json_formatter.cgi";
+              developmentUserDir = ".cdda-custom-experimental-development";
 
-              mkdir $out
+              writeLauncherScript = ''
+                cat << EOF > launcher
 
-              install -m755 -D ${name} $out/bin/${name}
+                #!${pkgs.runtimeShell}
 
-              runHook postInstall
-            '';
-          });
+                if [[ -z "\$1" ]]; then
+                    userdir="\$HOME/${developmentUserDir}"
+                else
+                    userdir="\$1"
+                fi
+
+                content_dir="\$userdir/content"
+                if [[ ! -d "\$content_dir" ]]; then
+                    mkdir -p "\$content_dir"
+                    cp --no-preserve=mode -R $out/data $out/gfx $out/share/doc "\$content_dir/"
+                fi
+
+                "$out/bin/cataclysm-tiles" --basepath "\$content_dir" --userdir "\$userdir"
+
+                EOF
+
+                install -m755 -D launcher $out/bin/${launcherFile}
+              '';
+            in
+            previousAttrs: rec {
+              name = launcherFile;
+              pname = "development";
+              meta.mainProgram = launcherFile;
+              nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ pkgs.stdenv.cc.cc ];
+              installPhase = ''
+                runHook preInstall
+
+                mkdir $out
+
+                install -m755 -D ${jsonFormatterFile} $out/bin/${jsonFormatterFile}
+
+                mkdir -p $out
+                cp -R data gfx doc $out
+
+                install -m755 -D cataclysm-tiles $out/bin/cataclysm-tiles
+
+                ${writeLauncherScript}
+
+                runHook postInstall
+              '';
+            }
+          );
 
           default =
             let
