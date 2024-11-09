@@ -3,7 +3,25 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project *loosely* adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Minor version bumps could mean removal of things.
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.8.0] - 2024-11-09
+
+### Added
+
+- Add `cdda-tiles-launcher-dev` to `#development` output.
+    - Now, as a private CDDA mod author using this flake, I can replace mods
+    and other contents from within `$HOME/.cdda-custom-experimental-dev/content`
+    directory without the need to update this flake anymore. This is far more
+    convenient with this new script being available by default.
+    
+
+### Changed
+
+- Bump `CDDA` game version to `2024-11-08-2048`.
+- Bump `Tankmod_Revived` to `5b1ea6a16f9cbdde3ce8b5dd01d1704cf8625c61`.
+- `#development` output now points to `cdda-tiles-launcher-dev` by default.
+    - `json_formatter.cgi` is still available and exposed in `PATH` normally.
 
 ## [0.7.0] - 2024-11-07
 
