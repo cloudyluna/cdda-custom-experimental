@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump `CDDA` game version to `2024-11-08-2048`.
 - Bump `Tankmod_Revived` to `5b1ea6a16f9cbdde3ce8b5dd01d1704cf8625c61`.
-- `#development` output now points to `cdda-tiles-launcher-dev` by default.
+- `#development` output now points to `cdda-tiles-launcher-development` launcher by default.
     - `json_formatter.cgi` is still available and exposed in `PATH` normally.
 
 ## [0.7.0] - 2024-11-07

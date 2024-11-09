@@ -204,7 +204,7 @@ and data contents.
 
 #### Included tools
 - `cdda-tiles-launcher-development` - A script similar to regular `cdda-tiles-launcher`
-but it also copies & points to the content (mod, gfx, sound, doc, etc) into `$HOME/.cdda-custom-experimental-development` by default on first launch. 
+but it also copies & points to the content (mod, gfx, sound, doc, etc) into `$HOME/.cdda-custom-experimental-development/content` by default on first launch. 
   - This allows user to change & update contents without first requiring to manually
   edit the cdda-custom-experimental Nix flake files like in traditional Linux system.
 - `json_formatter.cgi` - Format mods JSON file according to CDDA's 
