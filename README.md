@@ -3,7 +3,7 @@
 🐈🐈🐈
 
 This is my personal nix flake to run the automatically (experimental) built 
-CDDA game from CDDA's github repo. The executable artifact is fetched from 
+CDDA game from CDDA's GitHub repo. The executable artifact is fetched from 
 their Github's Action CI system.
 
 My biggest primary motives for this flake are to:
