@@ -1,3 +1,11 @@
+# Archived
+
+This project has now been archived. While updating the plain game is fine, getting the mods to ensure it works with the base game is painful (which was one of the biggest reasons I made this flake). Chasing and bugging mod devs to update their voluntarily-made projects to be compatible with the rapidly changing base (experimental) game is not ideal.
+
+If you end up here looking to run a CDDA experimental on NixOS, try [FHSEnv](https://ryantm.github.io/nixpkgs/builders/special/fhs-environments/) instead. It's more flexible although you're on your own when it comes to reproducing a working game environment.
+
+Good luck!
+
 # CDDA Custom Experimental
 
 🐈🐈🐈
